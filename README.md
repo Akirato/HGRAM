@@ -1,31 +1,20 @@
-# G-Meta: Graph Meta Learning via Local Subgraphs
+# H-GRAM: Meta Learning Model for Hyperbolic Graph Neural Networks
 
-#### Authors: [Kexin Huang](https://www.kexinhuang.com), [Marinka Zitnik](https://zitniklab.hms.harvard.edu)
+Hyperbolic neural networks (HNNs) have outperformed their Euclidean counterparts in several domains that involve hierarchical datasets including recommender systems, biology, and knowledge graphs. However, current research in the domain is limited due to HNNs’ lack of inductive bias mechanisms that could help it generalize well over unseen tasks or enable scalable learning over large datasets. In this paper, we aim to alleviate these issues by learning generalizable structure priors from the nodes’ local subgraph and transfer them for faster learning over new subgraphs with a disjoint set of nodes, edges and labels in a few-shot setting. We theoretically justify that HNNs predominantly rely on local neighborhoods for label prediction evidence of a target node or edge, and hence, we learn the model parameters on local graph partitions, instead of the earlier approach that considers the entire graph together. 
+We introduce a novel Hyperbolic GRAph Meta Learner (H-GRAM) that learns transferable information from a set of support local subgraphs, in the form of hyperbolic meta gradients and label hyperbolic protonets, to enable faster learning over a query set of new tasks dealing with disjoint subgraphs. Furthermore, we show that an extension of our meta-learning framework also solves the limitation of scalability in hyperbolic neural networks faced by
+earlier approaches. Our comparative analysis shows that H-GRAM effectively learns and transfers information in multiple challenging few-shot settings compared to other state-of-the-art baselines. Additionally, we demonstrate that, unlike standard HNNs, our model is able to efficiently scale over large standard graph datasets and improve performance over its Euclidean counterparts. Furthermore, we also evaluate the utility of various meta information components through an ablation study and analyze the scalability of our algorithm over different few-shot learning scenarios.
 
-#### [Project Website](https://zitniklab.hms.harvard.edu/projects/G-Meta)
-
-Prevailing methods for graphs require abundant label and edge information for learning. When data for a new task are scarce, meta learning can learn from prior experiences and form much-needed inductive biases for fast adaption to new tasks. 
-
-Here, we introduce G-Meta, a novel meta-learning algorithm for graphs. 
-G-Meta uses local subgraphs to transfer subgraph-specific information and learn transferable knowledge faster via meta gradients. G-Meta learns how to quickly adapt to a new task using only a handful of nodes or edges in the new task and does so by learning from data points in other graphs or related, albeit disjoint label sets. G-Meta is theoretically justified as we show that the evidence for a prediction can be found in the local subgraph surrounding the target node or edge.
-
-Experiments on seven datasets and nine baseline methods show that G-Meta outperforms existing methods by up to 16.3%. Unlike previous methods, G-Meta successfully learns in challenging, few-shot learning settings that require generalization to completely new graphs and never-before-seen labels. Finally, G-Meta scales to large graphs, which we demonstrate on a new Tree-of-Life dataset comprising of 1,840 graphs, a two-orders of magnitude increase in the number of graphs used in prior work. 
-
-![Graph Meta Learning Problems](figs/graph_meta_learning.png)
+![Graph Meta Learning Problems](figs/generic_meta_learning.png)
 
 
 ## Environment Installation
 
-```bash
-python -m pip install --user virtualenv
-python -m venv gmeta_env
-source activate gmeta_env
-pip install -r requirements.txt
+```
 ```
 
 ## Run
 ```bash
-cd G-Meta
+cd HGRAM
 # Single graph disjoint label, node classification (e.g. arxiv-ogbn)
 python train.py --data_dir DATA_PATH --task_setup Disjoint
 # Multiple graph shared label, node classification (e.g. Tissue-PPI)
@@ -183,7 +172,7 @@ Also, check out the [Jupyter notebook example](test.ipynb).
 
 ## Data Processing
 
-We provide the processed data files for five real-world datasets in this [Drive folder](https://drive.google.com/file/d/1TC06A02wmIQteKzqGSbl_i3VIQzsHVop/view?usp=drivesdk) and this [Microsoft OneDrive folder](https://hu-my.sharepoint.com/:u:/g/personal/kexinhuang_hsph_harvard_edu/EbSj1CehKDtKniKqtICWsScBESs9ldWWcTttGdADnFc6Wg?e=gJhl7c).
+We provide the processed data files for five real-world datasets in this [Drive folder](https://drive.google.com/file/d/1TC06A02wmIQteKzqGSbl_i3VIQzsHVop/view?usp=drivesdk).
 
 1\) To create your own dataset, create the following files and organize them as follows:
 
@@ -204,16 +193,5 @@ We also provide a sample data processing scripts in `data_process` folder. See `
 
 ## Cite Us
 
-```
-@article{g-meta,
-  title={Graph Meta Learning via Local Subgraphs},
-  author={Huang, Kexin and Zitnik, Marinka},
-  journal={NeurIPS},
-  year={2020}
-}
-```
-
 ## Contact
-
-Open an issue or send an email to kexinhuang@hsph.harvard.edu if you have any question. 
 
