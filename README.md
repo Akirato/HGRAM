@@ -4,7 +4,7 @@ Hyperbolic neural networks (HNNs) have outperformed their Euclidean counterparts
 We introduce a novel Hyperbolic GRAph Meta Learner (H-GRAM) that learns transferable information from a set of support local subgraphs, in the form of hyperbolic meta gradients and label hyperbolic protonets, to enable faster learning over a query set of new tasks dealing with disjoint subgraphs. Furthermore, we show that an extension of our meta-learning framework also solves the limitation of scalability in hyperbolic neural networks faced by
 earlier approaches. Our comparative analysis shows that H-GRAM effectively learns and transfers information in multiple challenging few-shot settings compared to other state-of-the-art baselines. Additionally, we demonstrate that, unlike standard HNNs, our model is able to efficiently scale over large standard graph datasets and improve performance over its Euclidean counterparts. Furthermore, we also evaluate the utility of various meta information components through an ablation study and analyze the scalability of our algorithm over different few-shot learning scenarios.
 
-![Graph Meta Learning Problems](figs/generic_meta_learning.png)
+![Hyperbolic Graph Meta Learning Problems](figs/generic_meta_learning.png)
 
 
 ## Environment Installation
@@ -57,7 +57,7 @@ To apply it to the five datasets reported in the paper, using the following code
 <summary>CLICK HERE FOR THE CODE!</summary>
 
 ```
-python G-Meta/train.py --data_dir PATH/G-Meta_Data/arxiv/ \
+python HGRAM/train.py --data_dir PATH/arxiv/ \
                             --epoch 10 \
                             --task_setup Disjoint \
                             --k_spt 3 \
@@ -79,7 +79,7 @@ python G-Meta/train.py --data_dir PATH/G-Meta_Data/arxiv/ \
 <summary>CLICK HERE FOR THE CODE!</summary>
 
 ```
-python G-Meta/train.py --data_dir PATH/G-Meta_Data/tissue_PPI/ \
+python HGRAM/train.py --data_dir PATH/tissue_PPI/ \
                             --epoch 15 \
                             --task_setup Shared \
                             --task_mode True \
@@ -102,7 +102,7 @@ python G-Meta/train.py --data_dir PATH/G-Meta_Data/tissue_PPI/ \
 <summary>CLICK HERE FOR THE CODE!</summary>
 
 ```
-python G-Meta/train.py --data_dir PATH/G-Meta_Data/fold_PPI/ \
+python HGRAM/train.py --data_dir PATH/fold_PPI/ \
                             --epoch 5 \
                             --task_setup Disjoint \
                             --k_qry 24 \
@@ -124,7 +124,7 @@ python G-Meta/train.py --data_dir PATH/G-Meta_Data/fold_PPI/ \
 <summary>CLICK HERE FOR THE CODE!</summary>
 
 ```
-python G-Meta/train.py --data_dir PATH/G-Meta_Data/FirstMM_DB/ \
+python HGRAM/train.py --data_dir PATH/FirstMM_DB/ \
                             --epoch 15 \
                             --task_setup Shared \
                             --k_qry 32 \
@@ -148,7 +148,7 @@ python G-Meta/train.py --data_dir PATH/G-Meta_Data/FirstMM_DB/ \
 <summary>CLICK HERE FOR THE CODE!</summary>
 
 ```
-python train.py --data_dir PATH/G-Meta_Data/tree-of-life/ \
+python HGRAM/train.py --data_dir PATH/tree-of-life/ \
                             --epoch 15 \
                             --task_setup Shared \
                             --k_qry 16 \
@@ -172,7 +172,7 @@ Also, check out the [Jupyter notebook example](test.ipynb).
 
 ## Data Processing
 
-We provide the processed data files for five real-world datasets in this [Drive folder](https://drive.google.com/file/d/1TC06A02wmIQteKzqGSbl_i3VIQzsHVop/view?usp=drivesdk).
+We provide the processed data files for five real-world datasets in this [Dropbox file](https://www.dropbox.com/s/gpe8sij29fp76c7/HGRAM_paper_data.zip?dl=0).
 
 1\) To create your own dataset, create the following files and organize them as follows:
 
