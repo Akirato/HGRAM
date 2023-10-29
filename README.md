@@ -6,12 +6,6 @@ earlier approaches. Our comparative analysis shows that H-GRAM effectively learn
 
 ![Hyperbolic Graph Meta Learning Problems](figs/generic_meta_learning.png)
 
-
-## Environment Installation
-
-```
-```
-
 ## Run
 ```bash
 cd HGRAM
